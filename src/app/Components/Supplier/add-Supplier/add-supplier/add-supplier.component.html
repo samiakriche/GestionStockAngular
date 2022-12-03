@@ -1,0 +1,39 @@
+<div class="add-contvainer">
+    <section class="get-in-touch">
+        <h3 class="title">Ajouter Un Fournisseur</h3>
+        <div *ngIf="isAdedd" [ngClass]="{'alert alert-success':isAdedd,'alert alert-danger':!isAdedd}" role="alert ">
+            {{ErrorMessage}}
+        </div>
+        <div *ngIf="errorMessage.length!=0" class="alert alert-danger" role="alert">
+            {{errorMessage}}
+        </div>
+        <form class="contact-form" [formGroup]="form" (ngSubmit)="addsupplier()">
+            <div class="row">
+                <div class="form-field col-lg-6">
+                    <input id="Prenom" class="input-text " type="text" formControlName="firstname" required>
+                    <label class="label" for="Prenom">Prenom : </label>
+                </div>
+                <div class="form-field col-lg-6">
+                    <input id="Nom" class="input-text " type="text" formControlName="lastname" required>
+                    <label class="label" for="Nom">Nom :</label>
+                </div>
+                <div class="form-field ">
+                    <input id="email" class="input-text " type="email" formControlName="email" required>
+                    <label class="label" for="email">E-mail :</label>
+                </div>
+                <div class="form-field ">
+                    <input id="phone" class="input-text " type="text" formControlName="phone" required>
+                    <label class="label" for="phone">Tel :</label>
+                </div>
+                <div class="form-field ">
+                    <input id="Address" class="input-text " type="text" formControlName="address" required>
+                    <label class="label" for="Address">Address</label>
+                </div>
+            </div>
+            <div class=" row form-field ">
+                <input class="submit-btn text-center text-capitalize col-lg-3" type="submit" value="Ajouter">
+                <input class="submit-btn text-center text-capitalize   col-lg-3" style="background-color: rgb(255, 255, 255);border:solid 1px rgb(173, 25, 173);; color: rgb(0, 0, 0);" type="reset" value="Vide">
+            </div>
+        </form>
+    </section>
+</div>

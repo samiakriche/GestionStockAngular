@@ -1,0 +1,131 @@
+/* .icon{
+    font-weight: bold;
+    width: 20px;
+    font-size: 20px;
+}
+
+
+
+.strike-text {
+    color: red;
+    text-decoration: line-through
+}
+
+h5 {
+    font-weight: 400
+}
+
+.date{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
+.strong{
+    font-weight: bold;
+}
+
+.border{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.delete{
+  cursor: pointer;
+}
+
+
+.date{
+    font-size: 10px;
+}
+
+.strong{
+    font-weight: bold;
+}
+
+.price{
+    color: rgb(64, 170, 64);
+}
+
+
+
+body{
+    background: #F4F7FD;
+    margin-top:20px;
+}
+
+.card-margin {
+    margin-bottom: 1.875rem;
+}
+
+.card {
+    border: 0;
+    box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+    -ms-box-shadow: 0px 0px 10px 0px rgba(82, 63, 105, 0.1);
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #ffffff;
+    background-clip: border-box;
+    border: 1px solid #e6e4e9;
+    border-radius: 8px;
+}
+
+.card .card-header.no-border {
+    border: 0;
+}
+.card .card-header {
+    background: none;
+    padding: 0 0.9375rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    min-height: 50px;
+}
+.card-header:first-child {
+    border-radius: calc(8px - 1px) calc(8px - 1px) 0 0;
+}
+
+.widget-49 .widget-49-title-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.widget-49 .widget-49-title-wrapper .widget-49-date-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #edf1fc;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.widget-49 .widget-49-title-wrapper .widget-49-date-primary .widget-49-date-day {
+
+  color: #4e73e5;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1;
+}

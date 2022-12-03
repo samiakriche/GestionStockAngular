@@ -1,0 +1,55 @@
+<div class="container">
+
+    <div class="row py-3 my-2">
+        <div class="input-group no-border col-md-5">
+            <input type="text" class="form-control" placeholder="Rechercher..." name="firstname" id="firstname" [(ngModel)]="firstname" (ngModelChange)="Search()">
+        </div>
+        <div class="col-md-3 mx-5"></div>
+        <div class="pull-right col-md-2 ">
+            <a routerLink="add" class=" btn btn-primary ">Nouvelle facture</a>
+        </div>
+    </div>
+
+    <div class="row col-md-12">
+        <div class="col-lg-4" *ngFor="let item of data | paginate: { itemsPerPage: 6, currentPage: p }">
+            <div class="card card-margin">
+                <div class="card-header header">
+                    <div class=" no-border">
+                        <span class="card-title"> {{ item.customer.firstname }} {{ item.customer.lastname }}</span>
+                    </div>
+                    <a (click)='delete(item.id)' class="delete danger">
+                        <span class="fa-stack">
+                            <i class="fa fa-square fa-stack-2x"></i>
+                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </a>
+                </div>
+                <div class="card-body pt-0">
+                    <div class="widget-49">
+                        <div class="widget-49-title-wrapper mb-2">
+                            <div class="widget-49-date-primary p-2 text-center">
+                                <span class="widget-49-date-day date">{{ item.orderDate | date:'dd-MM-yyyy' }}</span>
+                            </div>
+                            <div class="">
+                                <!-- <span class="widget-49-pro-title">7 produits</span> -->
+                                <span class="widget-49-meeting-time strong mx-3"> total :</span> <span class="price">{{
+                                    item.total }} DH</span>
+                            </div>
+                        </div>
+
+                        <div class="widget-49-meeting-action ">
+                            <a routerLink="details/{{ item.id }}" class="btn btn-sm btn-flash-border-primary col-12">Affichee Tout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <pagination-controls previousLabel=" " nextLabel='' (pageChange)="p = $event"></pagination-controls>
+
+    </div>
+
+
+
+
+</div>

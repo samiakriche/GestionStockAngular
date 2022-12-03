@@ -1,0 +1,30 @@
+.add {
+    position: absolute;
+    background-color: white;
+    color: black;
+    right: 20px;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    display: block;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.add:hover {
+    transform: rotate(30deg);
+    transition-delay: 1;
+    transition: all 0.5s;
+}
+
+.logout {
+    position: absolute;
+    bottom: 3rem;
+    left: 2rem;
+}

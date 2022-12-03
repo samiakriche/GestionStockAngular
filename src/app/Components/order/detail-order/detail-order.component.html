@@ -1,0 +1,96 @@
+<div class="container mt-5 mb-5">
+    <div class="">
+
+        <div class="col-md-3 ">
+            <h3>Informations</h3>
+        </div>
+        <div class="card">
+            <div class="card-body row">
+                <div class="col-md-5">
+                    <span class="mr-3 strong">Destinataire :</span> <span class="mr-2">{{ data?.customer.firstname }} {{
+                        data?.customer.lastname }}</span><br>
+                    <span class="mr-3 strong">Adresse :</span> <span class="mr-2">{{ data?.customer.address }}</span><br>
+                    <span class="mr-3 strong">Adresse email :</span> <span class="mr-2">{{ data?.customer.email
+                        }}</span><br>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3 ">
+                    <span class="mr-3 strong">Créé le :</span> <span> {{ data?.orderDate | date:'dd-MM-yyyy'}} </span>
+
+                    <!-- <button class="btn" (click)="imprimer()">Imprimer</button>     -->
+                    <div class="imprimer btn-primary" (click)="imprimer()">
+                        <i class=" fa fa-print fa-lg"></i>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <div class="d-flex justify-content-center row">
+        <h3 class="ml-5 my-3">Détail</h3>
+        <!-- <div class="col-md-10" *ngIf="data.orderProducts?.length>0"> 
+        </div> -->
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-wrap">
+                    <table class="table">
+                        <thead class="thead-primary" style="background-color: rgb(173, 5, 173);">
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>Produit</th>
+                                <th>Description</th>
+                                <th>Prix unitaire HT</th>
+                                <th>Quantité</th>
+                                <th>Total HT</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of data?.orderProducts" class="alert" role="alert">
+                                <td>
+                                    <!-- <img class="img" [src]="product.image" [alt]="product.name"> -->
+                                </td>
+
+                                <td class="border-bottom-0">
+                                    {{item.product.name | titlecase}}
+                                </td>
+                                <td class="border-bottom-0">
+                                    {{item.product.description | titlecase}}
+
+                                </td>
+                                <td class="border-bottom-0">{{item.prixHt | number:'.1-3'}} Dhs</td>
+                                <td class="border-bottom-0">{{item.quantity}}</td>
+                                <td class="border-bottom-0">{{item.totalHT}}</td>
+
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6 totals text-right">
+                <div class="row  ">
+                    <div class="col-md-3">
+                        <h4 class="strong">Total HT</h4>
+                        <h4 class="strong">Total TTC</h4>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>{{ data?.totalht }} DH</h4>
+                        <h4>{{ data?.total }} DH</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

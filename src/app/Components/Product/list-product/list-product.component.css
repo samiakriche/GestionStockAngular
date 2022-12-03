@@ -1,0 +1,73 @@
+table {
+    font-size: 0.9rem;
+}
+
+thead {
+    background-color: rgb(146, 178, 157);
+    color: cornsilk;
+}
+
+.email span {
+    display: block;
+}
+
+.email span:first-child {
+    font-weight: bold;
+}
+
+.img {
+    height: 4rem;
+}
+
+.ngx-pagination {
+    padding-left: 0px !important;
+    text-align: center;
+}
+
+.ngx-pagination .current,
+.btn-info {
+    background: rgb(172, 25, 173) !important;
+    border-radius: 20px !important;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-header input {
+    width: 35%;
+}
+
+.modal {
+    display: block;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 100000;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    background-color: #ffffff;
+    margin: auto;
+    padding: 20px;
+    width: 70%;
+    margin-top: 3rem;
+}

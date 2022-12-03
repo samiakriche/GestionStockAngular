@@ -1,0 +1,98 @@
+<section class="ftco-section mt-2">
+    <div class="container">
+        <!-- <div class="list-header">
+            <input type="text" [(ngModel)]="filter" placeholder="Filtre Par Nom " class="form-control ">
+            <div>
+                <button class="btn btn-primary text-capitalize " [routerLink]="[ 'add']" style="margin-right: 1vw; ">Ajouter un Produit</button>
+            </div>
+        </div>
+        <p style="font-size: .8rem;">
+            Nombre des Produit : {{listProduct.length}}
+        </p> -->
+
+        <div class="row">
+            <div class="row mb-1">
+                <div class="col-lg-10 mb-1">
+                    <input type="text" [(ngModel)]="filter" placeholder="Filtre Par Nom " class="form-control w-50">
+                </div>
+                <div class="col-lg-2 pr-0">
+                    <button class="btn btn-primary text-capitalize text-center" [routerLink]="[ 'add']"><span class="mr-1"><i class="fa fa-plus-circle"></i></span> Produit</button>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="table-wrapg ">
+                    <table class="table table-responsive-sm">
+                        <thead class="thead-primary " style="background-color: rgb(173, 5, 173); ">
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>Produit</th>
+                                <th>Prix</th>
+                                <th>Quantité </th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let product of listProduct |filter :'name':filter | paginate: { itemsPerPage: 6, currentPage: p,totalItems: listProduct?.length } " class="alert " role="alert ">
+                                <td>
+                                    <img class="img " src="assets\ProductImageDefault\defaultProuctImage.png" [alt]="product.name">
+                                </td>
+                                <td class="border-bottom-0 ">
+                                    <div class="email ">
+                                        <span>{{product.name | titlecase}} </span>
+                                        <span>{{product.description | ellipsis:10 | titlecase}}</span>
+                                    </div>
+                                </td>
+                                <td class="border-bottom-0 ">{{product.price | number:'.1-3'}} Dhs</td>
+                                <td class="border-bottom-0 ">{{product.quantityStock}}</td>
+                                <td class="border-bottom-0 ">
+                                    <i (click)="delete(product.id) " style="cursor: pointer;" class=" fa fa-trash fa-lg "></i>
+                                </td>
+                                <td class="border-bottom-0 ">
+                                    <i [routerLink]="[ 'edit',product.id]" style=" cursor: pointer; " class="fa fa-pencil fa-lg "></i>
+                                </td>
+                                <td class="border-bottom-0 ">
+                                    <i style="cursor: pointer; " [routerLink]="[ 'product-details',product.id] " class="fa fa-info " aria-hidden="true "></i>
+                                </td>
+                                <td class="border-bottom-0">
+                                    <i (click)=" SupplyingProduct(product.id)" class="fa fa-plus fa-lg" style="cursor: pointer;"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<pagination-controls *ngIf="filter.length===0 || listProduct.length===0 " directionLinks="true " previousLabel=" " nextLabel='' (pageChange)="pagechangeHandler($event) "></pagination-controls>
+<div class="modal" *ngIf="Supplying">
+    <div class="modal-content">
+        <div class=" text-right">
+            <i (click)="SupplyingProduct(0)" style="cursor: pointer; " class="fa fa-times-circle fa-2x"></i></div>
+        <div>
+            <h5 class=" card-header text-center  display-1">Fournir un Produit</h5>
+            <div class="card-body text-center ">
+                <form action=" " [formGroup]='myForm'>
+                    <div class="row">
+                        <div class="form-group col-lg-6">
+                            <input type="text" formControlName="Quantity" class="form-control" placeholder="Quantite">
+                        </div>
+                        <div class="form-group col-lg-6">
+                            <input type="text" formControlName="price" class="form-control" placeholder="Prix">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <select name="supplier" class="form-select form-select-lg mb-3 " aria-label=".form-select-lg example " formControlName="supplier">
+                        <option *ngFor="let s of listSupplier " [ngValue]="s.id ">{{s.firstname + " " + s.lastname}}</option>
+                      </select>
+                    </div>
+                    <input type="button" class="btn btn-primary " (click)="Supply() " value="Valide " [disabled]="!myForm.valid ">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

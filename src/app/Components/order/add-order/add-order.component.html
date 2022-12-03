@@ -1,0 +1,65 @@
+<div class="container-fluid home">
+    <div class="container">
+
+        <div class="valide card p-5" *ngIf="opValide">
+             
+            <h3>Votre facture est prête ?</h3>
+            <div class="action ">
+                
+                <button class="btn" (click)="imprimer(true)">envoyer au client</button>
+                <button class="btn" (click)='imprimer(false)'>Imprimer</button>
+                <button class="btn btn-danger pull-right" (click)='fermer()'>Fermer</button>
+            </div>
+    
+        </div>
+    
+    
+        <form action="" [formGroup]="myForm">
+           <div class="row" [ngClass]="{'background':opValide}">
+               <div class="col-md-7">
+                   <h4>Client</h4>
+                   <div class="form-group">
+                       <!-- <svg class="svg-inline--fa fa-caret-down fa-w-10 fa-fw" aria-hidden="true" focusable="false" data-prefix="far" data-icon="caret-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M272 160H48.1c-42.6 0-64.2 51.7-33.9 81.9l111.9 112c18.7 18.7 49.1 18.7 67.9 0l112-112c30-30.1 8.7-81.9-34-81.9zM160 320L48 208h224L160 320z"></path></svg> -->
+                       <select formControlName="idClient" name="delectionner un destinataire" class="form-control" id="select">
+                          <!-- <Option value="-1" selected>Choiser Client</Option> -->
+                           <Option value="" disabled selected>Choiser votlere client</Option>
+                           <Option *ngFor="let item of client" value="{{ item.id }}">{{ item.firstname }} {{ item.lastname }}</Option>
+                       </select>
+                   </div>
+               </div>
+               <div class="col-md-12 my-5">
+                   <h4>Articles</h4>
+                   <div class="one-order my-2 " *ngFor="let item of cartOrder$.lignes;let i = index">
+                       <div class="" >
+                       <div class="count">
+                           <span>{{i+1}}</span>
+                       </div>
+                       <div class="right-ligne"></div>
+                       <app-ligne id="{{ item.id }}"></app-ligne>
+                       </div>
+                   </div>
+       
+                   <button class="btn " (click)="AjouterLign()"> Ajouter Une Ligne</button>
+               </div>
+    
+    
+               <!-- <div class="card light">
+                   <div class="card-body">
+                      <div class="items pull-right">
+                        <span class="total-item"> Total HT  : 00.00 DH</span><br>
+                        <span class="total-item"> Remise générale : 00.00 DH</span><br>
+                        <span class="total-item">   Total HT final  : 00.00 DH</span><br>
+                        <span class="total-item">  TVA  : 00.00 DH</span><br>
+                        <span class="total-item">  Total : 00.00 DH</span><br>
+                          
+                      </div>
+                   </div>
+               </div> -->
+       
+               <div class="col-md-12 text-center">
+                   <div class="btn btn-primary col-md-5" (click)="valide()">Creer la facture</div>
+               </div>
+           </div>
+        </form>
+       </div>
+</div>

@@ -1,0 +1,56 @@
+tbody tr:nth-child(2n) {
+    background-color: rgb(230, 240, 231);
+}
+
+table thead tr th {
+    background-color: rgb(172, 25, 173) !important;
+}
+
+.container {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+select {
+    border: none;
+    height: 2.3rem !important;
+    margin-top: 0;
+}
+
+.btn {
+    margin-top: 0;
+}
+
+.ngx-pagination {
+    padding-left: 0px !important;
+    text-align: center;
+}
+
+.ngx-pagination .current,
+.btn-info {
+    background: rgb(172, 25, 173) !important;
+    border-radius: 20px !important;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+}
+
+.list-header input {
+    width: 35%;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    height: 100%;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+}
+
+@media screen and (max-width:320px) {
+    form {
+        flex-direction: column;
+    }
+}

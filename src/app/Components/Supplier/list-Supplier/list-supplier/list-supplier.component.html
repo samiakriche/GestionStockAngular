@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="row">
+        <div class="row mb-1">
+            <div class="col-lg-10 mb-1">
+                <input type="text" placeholder="Filtre Par Nom" [(ngModel)]="filter" #filterValue class="form-control w-50">
+            </div>
+            <div class="col-lg-1 pr-0">
+                <button class="btn btn-primary text-capitalize" [routerLink]="['add']">  <span class="mr-1"><i class="fa fa-plus-circle"></i></span>fournisseur</button>
+            </div>
+        </div>
+        <div>
+            <table style="background-color: #fff;" class="table table-responsive-sm">
+                <thead>
+                    <tr>
+                        <th>
+                            Nom complet
+                        </th>
+                        <th>
+                            E-Mail </th>
+                        <th>
+                            Address
+                        </th>
+                        <th>
+                            Teli
+                        </th>
+
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let supplier of (listSupplier | filter : 'firstname': filter) | paginate: { itemsPerPage: 8, 
+            currentPage: p,totalItems: listSupplier?.length }">
+                        <td>
+                            {{supplier.firstname | uppercase }}{{ " " + supplier.lastname }}
+                        </td>
+                        <td>
+                            {{supplier.email}}
+                        </td>
+                        <td>
+                            {{supplier.address |ellipsis:15}}
+                        </td>
+                        <td>
+                            {{supplier.phone}}
+                        </td>
+
+                        <td>
+                            <i [routerLink]="['supplier-details',supplier.id]" class="fa fa-ellipsis-h fa-lg" aria-hidden="true" style="cursor: pointer;" aria-hidden="true "></i>
+                        </td>
+                        <td>
+                            <i (click)="Delete(supplier.id)" class=" fa fa-trash fa-lg  text-danger" aria-hidden="true" style="cursor: pointer;" aria-hidden="true "></i>
+                        </td>
+                        <td>
+                            <i [routerLink]="['edit',supplier.id]" class=" fa fa-pencil fa-lg text-success " style="cursor: pointer; " aria-hidden="true "></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <pagination-controls *ngIf="filter.length===0 || listSupplier.length===0" directionLinks="true " previousLabel=" " nextLabel='' (pageChange)="pagechangeHandler($event) "></pagination-controls>
+        <p *ngIf="filter.length===0">
+            Nombre De(s) Fournisseur : {{listSupplier.length}}
+        </p>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="row m-0">
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">store</i>
+                    </div>
+                    <p class="card-category">Total des Ventes</p>
+                    <h3 class="card-title">
+                        {{sumVents}}
+                        <small>DH</small>
+                    </h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">date_range</i>Par Mois...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">person</i>
+                    </div>
+                    <p class="card-category">Clients</p>
+                    <h3 class="card-title"> {{countClient}}</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats"><i class="material-icons">person</i> Clients</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">person</i>
+                    </div>
+                    <p class="card-category">Fournisseurs</p>
+                    <h3 class="card-title"> {{countFours}}</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">person</i> Fournisseurs
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="mt-2 ml-3 row">
+            <div style="width: 45%;">
+                <div style="display: block">
+                    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="barChartOptions" [legend]="'true'" [chartType]="'line'">
+  </canvas>
+                </div>
+            </div>
+            <div style="width: 45%;" class="ml-5">
+                <div style="display: block">
+                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="'true'" [chartType]="'bar'">
+            </canvas>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-chart">
+                <div class="card-header">
+                    <canvas baseChart [datasets]="lineChartData" [labels]="lineChartLabels" [options]="barChartOptions" [legend]="'true'" [chartType]="'line'">
+                    </canvas>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> Les Produits Le Plus Achetee
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-chart">
+                <div class="card-header">
+                    <canvas baseChart [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions" [legend]="'true'" [chartType]="'bar'">
+                    </canvas>
+                </div>
+
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> Revenue Dans Le Derniere Semaine
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

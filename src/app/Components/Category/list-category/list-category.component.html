@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row my-5">
+        <div class="col-md-6">
+            <div class="card">
+                <h5 class="card-header text-center strong">Ajouter un Catégorie</h5>
+                <div class="card-body text-center">
+                    <form action="" [formGroup]='myForm'>
+                        <div class="form-group">
+                            <!-- <label for="">category</label> -->
+                            <input type="text" formControlName="name" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                        </div>
+                        <input type="button" class="btn btn-primary" (click)="add()" value="Valide" [disabled]="!myForm.valid">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="card col-md-4  mx-3">
+            <table class="table">
+                <thead>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of items">
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>
+                            <div (click)="delete(item.id)" class="ml-3 delete">
+                                <i class="fa fa-trash"></i>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

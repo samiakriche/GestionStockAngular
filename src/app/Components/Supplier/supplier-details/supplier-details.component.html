@@ -1,0 +1,33 @@
+<div class="card text-center">
+    <div class="card-header display-5">
+        Nom Complet : <span class="font-weight-bold">{{supplier.lastname | uppercase}} {{ " " + supplier.firstname }}</span>
+    </div>
+    <div class="card-body">
+        <h5 class="card-text">E-mail : {{supplier.email}}</h5>
+        <p class="card-text">
+            Address : {{supplier.address}}</p>
+        <p class="card-text"> Teli : {{supplier.phone}}</p>
+    </div>
+</div>
+<div *ngIf="productList.length===0">
+    <p>Fournisseur avoir aucun produit
+    </p>
+</div>
+<table *ngIf="productList.length!==0" class="table table-responsive-sm">
+    <thead>
+        <tr>
+            <th scope="col">#Id</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prix</th>
+            <th scope="col">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of productList; let i = index">
+            <th>{{product.id}}</th>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
+        </tr>
+    </tbody>
+</table>

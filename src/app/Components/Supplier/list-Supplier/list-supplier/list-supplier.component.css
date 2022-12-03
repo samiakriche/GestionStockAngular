@@ -1,0 +1,54 @@
+.user-container {
+    border-radius: 5px;
+    text-align: left;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    margin: 0 3rem;
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+p {
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-left: 0.4rem;
+    margin-right: 0.4rem;
+}
+
+.user-container :hover {
+    background-color: rgb(237, 237, 237);
+}
+
+.user-container div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.list-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-header input {
+    width: 35%;
+}
+
+.ngx-pagination {
+    padding-left: 0px !important;
+    text-align: center;
+}
+
+.ngx-pagination .current,
+.btn-info {
+    background: rgb(172, 25, 173) !important;
+    border-radius: 20px !important;
+}
+
+.hader {
+    display: flex;
+}
+
+th {
+    color: black !important;
+    background-color: white !important;
+}

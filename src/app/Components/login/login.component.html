@@ -1,0 +1,39 @@
+<div class="centerVertical">
+    <div class="container">
+        <div class="row no-gutter">
+            <div class="col-md-6 d-none d-md-flex bg-image ">
+                <img src="https://www.axelent.com/media/7406/aw_101_web_image_800x530.jpg?mode=pad&rnd=132037712238130000" alt="">
+            </div>
+            <div class="col-md-6 bg-light">
+                <div class="login d-flex align-items-center py-5">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-9 col-xl-7 mx-auto">
+                                <h1 class="display-5 text-center">Log In</h1>
+                                <p class="text-muted mb-4"></p>
+                                <form [formGroup]="loginForm" (ngSubmit)="logIn()">
+                                    <div class="text-center" *ngIf="ErrorAuth">
+                                        <p>Nom ou Mote de Pass Incorrect</p>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <input id="inputEmail" formControlName="username" type="email" placeholder="Nom" autofocus="true" class="form-control rounded-pill border-0 shadow-sm px-4">
+                                        <small class="text-danger " *ngIf="loginForm.get( 'username').errors?.required && loginForm.get( 'username').touched ">Cette champ est obligatoire</small>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <input type="password" formControlName="password" placeholder="Mot de pass" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                                        <small class="text-danger " *ngIf="loginForm.get( 'password').errors?.required && loginForm.get( 'password').touched ">Cette champ est obligatoire</small>
+                                    </div>
+                                    <div class="custom-control custom-checkbox mb-3">
+                                        <input id="customCheck1" (change)="remember=!remember" type="checkbox" [checked]="remember" class="custom-control-input">
+                                        <label for="customCheck1" class="custom-control-label">Remember Me</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Sign in</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

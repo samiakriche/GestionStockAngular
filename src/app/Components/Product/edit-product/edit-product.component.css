@@ -1,0 +1,16 @@
+h3 {
+    color: rgb(173, 5, 173);
+}
+
+.add-container {
+    width: 90%;
+    margin: auto;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+textarea {
+    border: 1px rgb(221, 221, 221) solid;
+    padding: 1rem;
+}

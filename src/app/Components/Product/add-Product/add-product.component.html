@@ -1,0 +1,87 @@
+<div class="add-container">
+    <div class="container contact-form">
+        <form [formGroup]="form" (ngSubmit)="addProduct()">
+            <h1 class="text-center display-1" style="margin-bottom: 2rem;">Ajouter Un Produit</h1>
+            <div *ngIf="isSbmitted" [ngClass]="{'alert alert-success':isAdedd,'alert alert-danger':!isAdedd}" role="alert ">
+                {{ErrorMessage}}
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group ">
+                        <input type="text " name="name" class="form-control " placeholder="Nom " formControlName="name" />
+                        <small class="text-danger " *ngIf="form.get( 'name').errors?.required && form.get( 'name').touched ">Cette champ est obligatoire</small>
+                        <small class="text-danger " *ngIf="form.get( 'name').invalid && form.get( 'name').touched && form.get( 'name').value!=='' ">Value est invalid</small>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <input type="text " name="price" class="form-control " placeholder="Prix " formControlName="price" />
+                            <small class="text-danger " *ngIf="form.get( 'price').errors?.required && form.get( 'price').touched ">Cette champ est obligatoire </small>
+                            <small class="text-danger " *ngIf="form.get( 'price').invalid && form.get( 'price').touched && form.get( 'price').value!=='' ">Value est invalid</small>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <input type="number" name="quantityStock " class="form-control " placeholder="Qunatite en stock" formControlName="quantityStock" />
+                            <small class="text-danger " *ngIf="form.get( 'quantityStock').errors?.required && form.get( 'quantityStock').touched ">Cette champ est obligatoire</small>
+                            <small class="text-danger " *ngIf="form.get( 'quantityStock').invalid && form.get( 'quantityStock').touched && form.get( 'quantityStock').value!=='' ">Value est invalid</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col" style="width: 88%;" style="padding-right: 0px;">
+                            <select name=" category " class="form-select form-select-md mb-3 " aria-label=".form-select-lg example " formControlName="category">
+                        <option *ngFor="let c of listCategory " [ngValue]="c.id ">{{c.name}}</option>
+                      </select>
+                        </div>
+                        <div style="margin-top: 0.3rem;cursor: pointer; width: 18%; ">
+                            <i (click)="addCategory=true " class="fa fa-plus fa-2x "></i>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col " style="width: 88%; " style="padding-right: 0px; ">
+                            <select name="supplier " class="form-select form-select-md  " formControlName="supplier">
+                            <option *ngFor="let s of listSupplier " [ngValue]="s.id ">{{s.firstname + " " + s.firstname}}</option>
+                          </select>
+                        </div>
+                        <div style="margin-top: 0.3rem;cursor: pointer; width: 18%;">
+                            <i (click)="addSupplier=true " class="fa fa-plus fa-2x "></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <div class="form-group">
+                        <textarea name="description " class="form-control " rows="6" placeholder="Description " formControlName="description"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <input type="submit" [disabled]="!form.valid " class="btn btn-primary text-capitalize col-xs-6 " value="Ajouter " style="cursor: pointer; ">
+                    <input type="reset" class="btn btn-default text-capitalize col-xs-6 " value="Vide " style="cursor: pointer; ">
+                </div>
+                <a routerLink="/home/products " class="link-info text-capitalize " style="color: rgb(172, 25, 173); margin-top: 1rem ">Revenir à la List</a>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="modal " *ngIf="addCategory">
+    <div class="modal-content ">
+        <div class=" text-right ">
+            <i (click)="addCategory=false " style="cursor: pointer; " class="fa fa-times-circle fa-2x "></i></div>
+        <div>
+            <h3 class=" card-header text-center strong ">Ajouter Catégorie</h3>
+            <div class="card-body text-center ">
+                <form action=" " [formGroup]='myForm'>
+                    <div class="form-group ">
+                        <input type=" text " formControlName="name" class="form-control" id="formGroupExampleInput " placeholder="Example input ">
+                    </div>
+                    <input type="button" class="btn btn-primary" (click)="add() " value="Valide " [disabled]="!myForm.valid ">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal m-supplier " *ngIf="addSupplier">
+    <div class="modal-content model-supplier">
+        <div class=" text-right ">
+            <i (click)="addSupplier=false " style="cursor: pointer; " class="fa fa-times-circle fa-2x "></i></div>
+        <div>
+            <app-add-supplier (emitteSupplierAdd)="refreshSupplier($event) "></app-add-supplier>
+        </div>
+    </div>
+</div>
